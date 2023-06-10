@@ -1,0 +1,24 @@
+{
+    "questName": "Test",
+    "questCategory": "MainQuest",
+    "description": "Test description",
+    "gold": 10,
+    "experience": 20,
+    "suggestedLevel": 3,
+    "subGoals": [{
+        "subName": "Goal",
+        "subDescription": "lol",
+        "goalPosition": {
+            "x":10.0,
+            "y":10.0
+        },
+        "useRadius": true,
+        "radius": 20,
+        "circleColor": {
+            "r":255.0,
+            "g":255.0,
+            "b":255.0,
+            "a":1.0
+        }
+    }]
+}

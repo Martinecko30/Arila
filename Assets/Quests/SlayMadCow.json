@@ -1,0 +1,41 @@
+{
+    "questName": "Slay the mad cow",
+    "questCategory": "SecondaryQuest",
+    "description": "Slay the mad cow",
+    "gold": 20,
+    "experience": 100,
+    "suggestedLevel": 1,
+    "subGoals": [{
+        "subName": "Find the cow",
+        "subDescription": "Find the mad cow in area",
+        "goalPosition": {
+            "x":10.0,
+            "y":10.0
+        },
+        "useRadius": true,
+        "radius": 16,
+        "circleColor": {
+            "r":200.0,
+            "g":200.0,
+            "b":100.0,
+            "a":1.0
+        }
+    },
+    {
+        "subName": "Slay the beast",
+        "subDescription": "Slay the beast with you sword",
+        "goalPosition": {
+            "x":10.0,
+            "y":10.0
+        },
+        "useRadius": false,
+        "radius": 16,
+        "circleColor": {
+            "r":200.0,
+            "g":200.0,
+            "b":100.0,
+            "a":1.0
+        }
+    }
+    ]
+}
