@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:TextField picking-mode="Ignore" label="Name" value="Default" text="Default " name="QuestName" />
+    <ui:TextField picking-mode="Ignore" label="Description" value="Default description" text="Default description" name="QuestDescription" />
+    <ui:DropdownField label="Dropdown" index="-1" choices="Arila.QuestCategory" name="QuestCategory" />
+    <ui:TextField picking-mode="Ignore" label="Suggested Level" value="1" text="1" name="SuggestedLevel" style="height: -7px;" />
+    <ui:TextField picking-mode="Ignore" label="Gold Reward" value="10" text="10" name="GoldReward" />
+    <ui:TextField picking-mode="Ignore" label="Experience Reward" value="10" text="10" name="ExpReward" />
+    <ui:ListView focusable="true" name="SubGoals" header-title="Sub Goals" reorderable="true" show-add-remove-footer="false" />
+</ui:UXML>

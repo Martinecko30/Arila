@@ -11,6 +11,7 @@ public class QuestManager : Singleton<QuestManager>
     [Header("Quest List Canvas")]
     [SerializeField] private Button questPrefab;
     [SerializeField] private Transform questListTransform;
+    [SerializeField] private Canvas questListCanvas;
 
     [Header("Quest Info Canvas")]
     [SerializeField] private TMP_Text questName;
@@ -29,10 +30,22 @@ public class QuestManager : Singleton<QuestManager>
         allQuests.Add(selectedQuest);
         allQuests.Add(selectedQuest);
         allQuests.Add(selectedQuest);
+        allQuests.Add(selectedQuest);
+        allQuests.Add(selectedQuest);
+        allQuests.Add(selectedQuest);
+        allQuests.Add(selectedQuest);
+        allQuests.Add(selectedQuest);
+        allQuests.Add(selectedQuest);
+        allQuests.Add(selectedQuest);
+        allQuests.Add(selectedQuest);
+        allQuests.Add(selectedQuest);
+        allQuests.Add(selectedQuest);
+        allQuests.Add(selectedQuest);
+        allQuests.Add(selectedQuest);
         SelectQuestCanvas();
     }
 
-    public Quest CreateQuestFromJSON(string jsonString)
+    public static Quest CreateQuestFromJSON(string jsonString)
     {
         if (string.IsNullOrEmpty(jsonString)) 
             return null;
@@ -58,13 +71,14 @@ public class QuestManager : Singleton<QuestManager>
     private void CreateQuestButtons()
     {
         DeleteButtons();
+        questListCanvas.GetComponent<RectTransform>().sizeDelta = new Vector2(460, 100 * allQuests.Count);
         for (int i = 0; i < allQuests.Count; i++)
         {
             var questButton = Instantiate(questPrefab, questListTransform);
 
             // Transform
             var rectTrans = questButton.GetComponent<RectTransform>();
-            rectTrans.sizeDelta = new Vector2(500, 100);
+            rectTrans.sizeDelta = new Vector2(460, 100);
             rectTrans.localScale = new Vector3(1, 1, 1);
             rectTrans.anchoredPosition = new Vector3(0, -100 * i, 0);
 
