@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,9 +9,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float runSpeed;
 
+    [Header("Inputs")]
+    private PlayerInputActions playerInputActions;
+    private InputAction move;
+    private InputAction jump;
+    private InputAction run;
+
     private float _ySpeed;
     private float _speed;
     private bool _running;
+
+    void Awake()
+    {
+        playerInputActions = new PlayerInputActions();
+    }
 
     void Start()
     {
@@ -25,31 +34,64 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void Update()
+    private void OnEnable()
+    {
+        move = playerInputActions.Player.Move;
+        jump = playerInputActions.Player.Jump;
+        run = playerInputActions.Player.Run;
+
+        move.Enable();
+        jump.Enable();
+        run.Enable();
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
+        jump.Disable();
+        run.Disable();
+    }
+
+    void Update()
+    {
+        Movement();
+    }
+
+    private void Movement()
     {
         _ySpeed += Physics.gravity.y * Time.deltaTime;
 
         Vector3 camRelativeMovement = Utils.ConvertToCameraSpace(new(
-            Input.GetAxis("Horizontal"), 
-            0, 
-            Input.GetAxis("Vertical"))
-        );
+            move.ReadValue<Vector2>().x,
+            0,
+            move.ReadValue<Vector2>().y
+        ));
 
-        if(Input.GetButtonDown("Jump") && controller.isGrounded)
+        if (jump.triggered && controller.isGrounded)
         {
             _ySpeed = jumpForce;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && !_running)
+        if (run.IsPressed())
         {
-            _speed = runSpeed;
-            _running = true;
+            _running = !_running;
+        }
+
+        if (!_running)
+        {
+            _speed = walkSpeed;
         }
         else
         {
-            _speed = walkSpeed;
-            _running = false;
+            _speed = runSpeed;
         }
+
+        if (camRelativeMovement != Vector3.zero)
+            transform.rotation = Quaternion.LookRotation(camRelativeMovement);
+
+
+        camRelativeMovement = Vector3.Lerp(transform.position, camRelativeMovement, Time.deltaTime * 100);
+
         camRelativeMovement *= _speed;
         camRelativeMovement.y = _ySpeed;
 
