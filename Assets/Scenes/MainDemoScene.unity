@@ -408,7 +408,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.22694394, y: 0.0017886102, z: -0.00041679, w: 0.9739061}
+  m_LocalRotation: {x: 0.22694394, y: 0.0017886793, z: -0.00041680608, w: 0.9739061}
   m_LocalPosition: {x: -0.011019371, y: 3.5, z: -2.9999797}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1547,7 +1547,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353692595}
-  m_LocalRotation: {x: 0.22694395, y: 0.0017886261, z: -0.00041679371, w: 0.9739061}
+  m_LocalRotation: {x: 0.22694395, y: 0.0017886636, z: -0.00041680242, w: 0.9739061}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1726,6 +1726,7 @@ GameObject:
   - component: {fileID: 1856993448}
   - component: {fileID: 1856993450}
   - component: {fileID: 1856993449}
+  - component: {fileID: 1856993451}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1823,6 +1824,19 @@ MonoBehaviour:
       m_Action: Interact Button
       m_Flags: 0
     m_Flags: 0
+--- !u!114 &1856993451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856993446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe15411b845c52a4cb0e91a59b88426e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  auraLvl: 0
 --- !u!1 &1916617649
 GameObject:
   m_ObjectHideFlags: 3

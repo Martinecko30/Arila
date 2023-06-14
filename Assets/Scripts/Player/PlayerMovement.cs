@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(camRelativeMovement);
 
 
-        camRelativeMovement = Vector3.Lerp(transform.position, camRelativeMovement, Time.deltaTime * 100);
+        //camRelativeMovement = Vector3.Lerp(transform.position, camRelativeMovement, Time.deltaTime * 100);
 
         camRelativeMovement *= _speed;
         camRelativeMovement.y = _ySpeed;
